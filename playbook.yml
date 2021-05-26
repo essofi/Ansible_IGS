@@ -5,8 +5,7 @@
       dest: /home/ansible_user/test.txt
       
   tasks:
-  -name: copy fille to remote server 
-   copy:
-         src : "{{src}}"
-         dest: "{{dest}}" 
-         
+    - name : copy fille to remote server 
+      copy:
+        src : "{{ src }}"
+        dest: "{{ dest }}"
