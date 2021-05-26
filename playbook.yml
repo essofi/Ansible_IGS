@@ -1,11 +1,12 @@
 - hosts : remote 
+  gather_facts: false
   vars  : 
-        file test.txt
-tasks:
-     
-     -name: test ping 
-     ping
-    -name: copy fille to remote server 
-     copy:
-         src : "{{file}}"
-         dest: /home/ansible_user/"{{file}}" 
+      src: test.txt
+      dest: /home/ansible_user/test.txt
+      
+  tasks:
+  -name: copy fille to remote server 
+   copy:
+         src : "{{src}}"
+         dest: "{{dest}}" 
+         
