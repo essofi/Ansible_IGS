@@ -1,0 +1,11 @@
+- hosts : remote 
+  vars  : 
+        file test.txt
+tasks:
+     
+     -name: test ping 
+     ping
+    -name: copy fille to remote server 
+     copy:
+         src : "{{file}}"
+         dest: /home/ansible_user/"{{file}}" 
