@@ -1,16 +1,18 @@
-- hosts : remote 
+- hosts: localhost
+  become: True 
   gather_facts: true 
-  vars  : 
+  vars_promt  : 
     - name: package
       prompt: "quel paquet voulez-vous installer "
       private: no
 
-    - name : version 
+    - name: version 
       prompt: "quelle version du paquet?"
+      default: latest
       private: no
       
   tasks:
     - name : install chosen package 
       apt: 
         package : "{{ package }}"
-        version : "{{ version }}"
+        state : "{{ version }}"
